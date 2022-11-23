@@ -1,0 +1,161 @@
+<!doctype html>
+
+
+<html>
+    <head>
+        <style>
+
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 15px;
+              overflow: hidden;
+              background-color: #34568b;
+            }
+            li {
+              float: left;
+            }
+            /* Style The Dropdown Button */
+            li a, .dropbtn {
+              background-color: #34568b;
+              color: #ffffff;
+              text-align: left;
+              padding: 14px 16px;
+              text-decoration: none;
+              /* font-size: 16px;
+              border: none;
+              cursor: pointer; */
+            }
+            li a:hover{
+              background-color: #D6DDE7;
+              color: #EAEEF3;
+            }
+            .dropdown:hover .dropbtn{
+              background-color: #EAEEF3;
+              color: #34568b;
+            }
+            /* The container <div> - needed to position the dropdown content */
+            li.dropdown {
+              /* position: relative; */
+              display: inline-block;
+            }
+
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+              display: none;
+              position: absolute;
+              background-color: #EAEEF3;
+              min-width: 160px;
+              box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+              z-index: 1;
+            }
+
+            /* Links inside the dropdown */
+            .dropdown-content a {
+              color: black;
+              padding: 12px 16px;
+              background-color: #EAEEF3;
+              text-decoration: none;
+              display: block;
+            }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {
+              background-color: #34568b;
+            }
+
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {
+              display: block;
+            }
+            select {
+              padding: 10px;
+              border: solid transparent;
+              background-color: #EAEEF3;
+
+            }
+            input {
+              border: solid transparent;
+              background-color: #ffffff;
+              padding: 10px;
+              font-size: 16px;
+            }
+            input[type=submit] {
+              background-color: #34568b;
+              color: #EAEEF3;
+              cursor: pointer;
+            }
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            .dropdown:hover .dropbtn {
+              background-color: #D6DDE7;
+            }
+            body {
+                background-color: #D6DDE7;
+            }
+            a {
+                font-family: Arial;
+                color: black
+            }
+            h1 {
+                color: #34568b;
+                font-family: Arial;
+                font-size: 24px;
+            }
+            h2 {
+                color: #34568b;
+                font-family: Arial;
+                font-size: 22px;
+            }
+            h3 {
+                color: #34568b;
+                font-family: Arial;
+                font-size: 20px;
+            }
+            h4 {
+                color: #34568b;
+                font-family: Arial;
+                font-size: 18px;
+            }
+            table {
+              border-collapse: collapse;
+              /* width: 100%; */
+            }
+
+            th, td {
+              text-align: left;
+              padding: 8px;
+            }
+
+            tr:nth-child(even){background-color: #ffffff}
+
+            th {
+              background-color: #34568b;
+              color: white;
+            }
+        </style>
+        {% if title %}
+        <title>{{ title }} - koinoxrista</title>
+        {% else %}
+        <title> koinoxrista</title>
+        {% endif %}
+    </head>
+    <body>
+
+
+
+        <br /><br />
+        <!-- </div> -->
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <br><br>
+        {% block content %}{% endblock %}
+    </body>
+</html>

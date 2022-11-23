@@ -1,17 +1,17 @@
 click==8.1.3
 fire==0.4.0
 Flask==2.2.2
+flask-basic-roles==0.2
+Flask-WTF==1.0.1
 fonttools==4.38.0
 importlib-metadata==5.0.0
 itsdangerous==2.1.2
 Jinja2==3.1.2
 lxml==4.9.1
 MarkupSafe==2.1.1
-numpy==1.23.5
 opencv-python==4.6.0.66
 pdf2docx==0.5.6
 pdf2image==1.16.0
-Pillow==9.3.0
 PyMuPDF==1.21.0
 PyPDF2==2.11.2
 python-docx==0.8.11
@@ -19,4 +19,5 @@ six==1.16.0
 termcolor==2.1.1
 typing_extensions==4.4.0
 Werkzeug==2.2.2
+WTForms==3.0.1
 zipp==3.10.0
