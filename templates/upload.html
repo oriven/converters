@@ -1,5 +1,68 @@
 <!DOCTYPE html>
 
+<style>
+select {
+  border: 1px solid transparent;
+  background-color: #ffffff;
+}
+
+input[type=submit] {
+  background-color: #34568b;
+  border: 1px solid transparent;
+  padding: 10px;
+
+  color: #EAEEF3;
+  cursor: pointer;
+}
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown:hover .dropbtn {
+  background-color: #D6DDE7;
+} */
+body {
+    background-color: #D6DDE7;
+}
+a {
+    font-family: Arial;
+    color: black
+}
+h1 {
+    color: #34568b;
+    font-family: Arial;
+    font-size: 36px;
+}
+h2 {
+    color: #34568b;
+    font-family: Arial;
+    font-size: 22px;
+}
+h3 {
+    color: #34568b;
+    font-family: Arial;
+    font-size: 20px;
+}
+h4 {
+    color: #34568b;
+    font-family: Arial;
+    font-size: 18px;
+}
+table {
+  border-collapse: collapse;
+  /* width: 100%; */
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #ffffff}
+
+th {
+  background-color: #34568b;
+  color: white;
+}
+
+</style>
 
 <html lang="en">
 <head>
@@ -8,11 +71,14 @@
   <title>Upload files with Flask</title>
 </head>
 <body>
-<h1>Upload files<h1>
+<h1 align="center">Μετατροπέας<h1>
+  <br><br>
 
-    <form method=post enctype=multipart/form-data>
+    <form align="center" method=post enctype=multipart/form-data>
       <input type=file name=file multiple>
+      <div>
       <input type=submit value=Upload>
+    </div>
     </form>
 
 {%- if files %}
@@ -24,16 +90,18 @@
   {% endfor %}
   </ul>
 {% endif %}
-
-  <form action="" method='POST' novalidate>
+<br><br>
+  <form align="center" action="" method='POST' novalidate>
     {{ form.choices() }}
     {{ form.submit() }}
   </form>
 
   <form action="" method="POST" novalidate>
-    {{ form.clear() }}
+
     <div align="center">
+        {{ form.clear() }}
       {{ form.download() }}
+    </div>
   </form>
 
 </body>
