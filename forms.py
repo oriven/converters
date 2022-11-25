@@ -9,3 +9,5 @@ class SelectForm(FlaskForm):
     choices = SelectField(u'', choices = [
         (i,i) for i in lista])
     submit = SubmitField(u'submit')
+    clear = SubmitField(u'clear')
+    download = SubmitField(u'Download')

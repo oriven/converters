@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -23,6 +24,17 @@
   {% endfor %}
   </ul>
 {% endif %}
+
+  <form action="" method='POST' novalidate>
+    {{ form.choices() }}
+    {{ form.submit() }}
+  </form>
+
+  <form action="" method="POST" novalidate>
+    {{ form.clear() }}
+    <div align="center">
+      {{ form.download() }}
+  </form>
 
 </body>
 </html>
