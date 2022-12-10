@@ -1,4 +1,4 @@
-#!/home/nikos/Documents/converter/venv/bin/python
+#!/home/nikos/converters/converters/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
