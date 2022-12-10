@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 from forms import SelectForm
 from flask_basic_roles import BasicRoleAuth
 import json
+from PIL import Image
 import os
 import uuid
 from PyPDF2 import PdfFileMerger
@@ -35,9 +36,16 @@ def main_page():
 def upload_file():
     form = SelectForm()
     if form.submit.data:
-        print('ok')
         target_file_name = str(uuid.uuid4())
-        _merge_pdf([f'files/{i}' for i in os.listdir(UPLOAD_FOLDER)],f'files_out/{target_file_name}')
+        if form.choices.data == 'merge_pdf':
+            _merge_pdf([f'files/{i}' for i in os.listdir(UPLOAD_FOLDER)],f'files_out/{target_file_name}')
+   	if form.choices.data == 'compress_pdf':
+            for i in os.listdir(UPLOAD_FOLDER):
+                if i.endswith('.pdf'):
+                    os.system(f"python pdf_compressor.py files/{i} files_out/shrinked_{i}")
+        if form.choices.data == 'jpeg_to_pdf':
+            _jpg_to_pdf([f'files/{i}' for i in os.listdir(UPLOAD_FOLDER)],f'files_out/{target_file_name}')
+
     if form.clear.data:
         for i in os.listdir('files'):
             os.remove(f'files/{i}')
@@ -114,3 +122,13 @@ def _merge_pdf(PATH,output_name):
         merger.append(pdf)
     merger.write(f"{output_name}.pdf")
     merger.close()
+    
+def _jpg_to_pdf(PATH,output_name):
+    "jpg to pdf"
+
+    for i in PATH:
+        if i[-4:] in ['.jpg','.png']:
+            image1 = Image.open(i)
+            im1 = image1.convert('RGB')
+            im1.save(f'{output_name}.pdf')
+

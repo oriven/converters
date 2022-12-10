@@ -5,7 +5,7 @@ import os
 
 
 class SelectForm(FlaskForm):
-    lista = ['merge_pdf', 'jpeg_to_pdf']
+    lista = ['merge_pdf', 'compress_pdf', 'jpeg_to_pdf']
     choices = SelectField(u'', choices = [
         (i,i) for i in lista])
     submit = SubmitField(u'submit')
