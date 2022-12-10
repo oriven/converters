@@ -39,7 +39,7 @@ def upload_file():
         target_file_name = str(uuid.uuid4())
         if form.choices.data == 'merge_pdf':
             _merge_pdf([f'files/{i}' for i in os.listdir(UPLOAD_FOLDER)],f'files_out/{target_file_name}')
-   	if form.choices.data == 'compress_pdf':
+        if form.choices.data == 'compress_pdf':
             for i in os.listdir(UPLOAD_FOLDER):
                 if i.endswith('.pdf'):
                     os.system(f"python pdf_compressor.py files/{i} files_out/shrinked_{i}")
@@ -122,7 +122,7 @@ def _merge_pdf(PATH,output_name):
         merger.append(pdf)
     merger.write(f"{output_name}.pdf")
     merger.close()
-    
+
 def _jpg_to_pdf(PATH,output_name):
     "jpg to pdf"
 
@@ -131,4 +131,3 @@ def _jpg_to_pdf(PATH,output_name):
             image1 = Image.open(i)
             im1 = image1.convert('RGB')
             im1.save(f'{output_name}.pdf')
-
