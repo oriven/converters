@@ -1,6 +1,6 @@
 # converters
 
-a website that allows some useful tools such as:
+a website that allows the user of some useful tools such as:
 
 merge pdfs
 
